@@ -1,34 +1,26 @@
-package com.codeforces.round.r630;
+package com.codeforces.round.number630;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class D2B {
-
-    private final long[] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31};
+public class D2A {
 
     private void solve() {
         int t = nextInt();
-        int[] c = new int[11], res = new int[1_001];
         for (int tt = 0; tt < t; tt++) {
-            int n = nextInt(), color = 0;
-            Arrays.fill(c, 0);
-            for (int i = 0; i < n; i++) {
-                int a = nextInt();
-                for (int j = 0; j < primes.length; j++) {
-                    if (a % primes[j] == 0) {
-                        if (c[j] == 0) c[j] = ++color;
-                        res[i] = c[j];
-                        break;
-                    }
-                }
+            long a = nextLong(), b = nextLong(), c = nextLong(), d = nextLong();
+            long x = nextLong() + b - a, y = nextLong() + d - c;
+            long x1 = nextLong(), y1 = nextLong(), x2 = nextLong(), y2 = nextLong();
+
+            if ((x1 == x2 && (a > 0 || b > 0)) || (y1 == y2 && (c > 0 || d > 0))) {
+                out.println("no");
+            } else if (x1 <= x && x <= x2 && y1 <= y && y <= y2) {
+                out.println("yes");
+            } else {
+                out.println("no");
             }
-            out.println(color);
-            for (int i = 0; i < n; i++) out.print(res[i] + " ");
-            out.println();
         }
     }
 
@@ -40,7 +32,7 @@ public class D2B {
     }
 
     public static void main(String[] args) {
-        new D2B().run();
+        new D2A().run();
     }
 
     private BufferedReader br;

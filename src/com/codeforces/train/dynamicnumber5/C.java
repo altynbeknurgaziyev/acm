@@ -1,4 +1,4 @@
-package com.codeforces.train.i100135;
+package com.codeforces.train.dynamicnumber5;
 
 import java.io.*;
 import java.util.StringTokenizer;

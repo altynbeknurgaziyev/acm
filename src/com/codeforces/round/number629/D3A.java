@@ -1,26 +1,17 @@
-package com.codeforces.round.r630;
+package com.codeforces.round.number629;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class D2A {
+public class D3A {
 
     private void solve() {
         int t = nextInt();
-        for (int tt = 0; tt < t; tt++) {
-            long a = nextLong(), b = nextLong(), c = nextLong(), d = nextLong();
-            long x = nextLong() + b - a, y = nextLong() + d - c;
-            long x1 = nextLong(), y1 = nextLong(), x2 = nextLong(), y2 = nextLong();
-
-            if ((x1 == x2 && (a > 0 || b > 0)) || (y1 == y2 && (c > 0 || d > 0))) {
-                out.println("no");
-            } else if (x1 <= x && x <= x2 && y1 <= y && y <= y2) {
-                out.println("yes");
-            } else {
-                out.println("no");
-            }
+        for (int i = 0; i < t; i++) {
+            int a = nextInt(), b = nextInt();
+            out.println(a % b == 0 ? 0 : (b - (a % b)));
         }
     }
 
@@ -32,7 +23,7 @@ public class D2A {
     }
 
     public static void main(String[] args) {
-        new D2A().run();
+        new D3A().run();
     }
 
     private BufferedReader br;
