@@ -1,29 +1,22 @@
-package com.codeforces.train.dynamicnumber5;
+package com.codeforces.gym.dynamicnumber5;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class B {
+public class C {
 
-    private String FILE_NAME = "lepus";
+    private String FILE_NAME = "knight";
 
     private void solve() {
-        int n = nextInt();
-        char[] s = next().toCharArray();
-
-        int[] max = new int[n];
-        boolean[] can = new boolean[n];
-        can[0] = true;
-        for (int i = 1; i < n; i++) {
-            for (int x = 1; x <= 5; x += 2) {
-                if (i - x > -1 && s[i] != 'w' && can[i - x]) {
-                    max[i] = Math.max(max[i], max[i - x] + (s[i] == '"' ? 1 : 0));
-                    can[i] = true;
-                }
+        int n = nextInt(), m = nextInt(), a[][] = new int[n][m];
+        a[0][0] = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (i - 1 > -1 && j - 2 > -1) a[i][j] += a[i - 1][j - 2];
+                if (i - 2 > -1 && j - 1 > -1) a[i][j] += a[i - 2][j - 1];
             }
         }
-
-        out.println(can[n - 1] ? max[n - 1] : -1);
+        out.println(a[n - 1][m - 1]);
     }
 
     private void run() {
@@ -44,7 +37,7 @@ public class B {
     }
 
     public static void main(String[] args) {
-        new B().run();
+        new C().run();
     }
 
     private BufferedReader br;

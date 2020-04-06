@@ -1,4 +1,4 @@
-package com.codeforces.train.dynamicnumber5;
+package com.codeforces.gym.dynamicnumber5;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

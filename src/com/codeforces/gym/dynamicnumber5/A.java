@@ -1,22 +1,17 @@
-package com.codeforces.train.dynamicnumber5;
+package com.codeforces.gym.dynamicnumber5;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class C {
+public class A {
 
-    private String FILE_NAME = "knight";
+    private String FILE_NAME = "ladder";
 
     private void solve() {
-        int n = nextInt(), m = nextInt(), a[][] = new int[n][m];
-        a[0][0] = 1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (i - 1 > -1 && j - 2 > -1) a[i][j] += a[i - 1][j - 2];
-                if (i - 2 > -1 && j - 1 > -1) a[i][j] += a[i - 2][j - 1];
-            }
-        }
-        out.println(a[n - 1][m - 1]);
+        int n = nextInt(), a[] = new int[n + 2];
+        for (int i = 0; i < n; i++) a[i + 2] = nextInt();
+        for (int i = 1; i < n; i++) a[i + 2] += Math.max(a[i + 1], a[i]);
+        out.println(a[n + 1]);
     }
 
     private void run() {
@@ -37,7 +32,7 @@ public class C {
     }
 
     public static void main(String[] args) {
-        new C().run();
+        new A().run();
     }
 
     private BufferedReader br;
