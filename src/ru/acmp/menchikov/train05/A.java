@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 public class A {
+
     private int[] a = {
             220, 284,
             1184, 1210,
