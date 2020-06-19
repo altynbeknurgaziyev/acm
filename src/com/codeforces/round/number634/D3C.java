@@ -1,39 +1,30 @@
-package com.codeforces.round.number632;
+package com.codeforces.round.number634;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class B {
+public class D3C {
 
     private void solve() {
-        int t = nextInt(), a[] = new int[100_001], b[] = new int[100_001];
-        boolean[][] flag = new boolean[100_001][2];
+        int t = nextInt();
         for (int tt = 0; tt < t; tt++) {
-            int n = nextInt();
-            boolean pos = false, neg = false;
+            int n = nextInt(), max = 0;
+            Set<Integer> set = new HashSet<>();
+            Map<Integer, Integer> map = new HashMap<>();
+
             for (int i = 0; i < n; i++) {
-                flag[i][0] = pos;
-                flag[i][1] = neg;
-                a[i] = nextInt();
-                pos = pos || a[i] > 0;
-                neg = neg || a[i] < 0;
+                int a = nextInt();
+
+                set.add(a);
+
+                if (!map.containsKey(a)) map.put(a, 0);
+                int cnt = map.get(a) + 1;
+                max = Math.max(max, cnt);
+                map.put(a, cnt);
             }
-            for (int i = 0; i < n; i++) {
-                b[i] = nextInt() - a[i];
-            }
-            if (a[0] != b[0] + a[0]) {
-                out.println("NO");
-                continue;
-            }
-            boolean can = true;
-            for (int i = 1; i < n; i++) {
-                if (b[i] > 0 && !flag[i][0]) can = false;
-                if (b[i] < 0 && !flag[i][1]) can = false;
-                if (!can) break;
-            }
-            out.println(can ? "YES" : "NO");
+            out.println(Math.max(Math.min(max - 1, set.size()), Math.min(max, set.size() - 1)));
         }
     }
 
@@ -45,7 +36,7 @@ public class B {
     }
 
     public static void main(String[] args) {
-        new B().run();
+        new D3C().run();
     }
 
     private BufferedReader br;

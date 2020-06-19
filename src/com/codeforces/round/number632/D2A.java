@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class A {
+public class D2A {
 
     private void solve() {
         int t = nextInt();
@@ -28,7 +28,7 @@ public class A {
     }
 
     public static void main(String[] args) {
-        new A().run();
+        new D2A().run();
     }
 
     private BufferedReader br;
